@@ -1,37 +1,49 @@
 <html>
   <body>
     Agent Demo Test
-<script type='text/javascript' src='https://breadwinner--afsales.sandbox.my.site.com/ESWDemoTestAgent1738665202115/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			embeddedservice_bootstrap.init(
-				'00Dcb000001ek8P',
-				'Demo_Test_Agent',
-				'https://breadwinner--afsales.sandbox.my.site.com/ESWDemoTestAgent1738665202115',
-				{
-					scrt2URL: 'https://breadwinner--afsales.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-		var SfOrgId = "";
-	     window.addEventListener("onEmbeddedMessagingReady", e => {
+	  <script type='text/javascript'>
+    function initEmbeddedMessaging() {
+        try {
+            embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+            embeddedservice_bootstrap.init(
+                '00DDn00000DuiyZ',
+                'Cookbook_MIAW_Deployment',
+                'https://csg-gr-cdo-summer23.my.site.com/ESWCookbookMIAWDeployme1710815189835',
+                {
+                    scrt2URL: 'https://csg-gr-cdo-summer23.my.salesforce-scrt.com'
+                }
+            );
+        } catch (err) {
+            console.error('Error loading Embedded Messaging: ', err);
+        }
+    };
+    
+    //Passing Web Context to Prechat - BEGIN
+    var orgId = "";
+        
+    window.addEventListener("onEmbeddedMessagingReady", e => {
         //log event
-        	console.log("Hello World");
-	    	embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-	            // List the pre-chat field names with the value and whether
-	            // it's editable in the pre-chat form.
-	            "_sf_org_id": {
-	              "value": SfOrgId,
-	              "isEditableByEndUser": false
-	            }
-	        });
-	     });
-</script>
-
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        //set visible prechat field
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "_sf_org_id": {
+              "value": orgId,
+              "isEditableByEndUser": true
+            }
+        });
+      
+        // //Set invisible prechat field
+        // embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+        //     "Shopping_Cart_Value" : sShoppingCartValue,
+        //     "Customer_ID" : sCustomerID
+        // });
+    });
+    //Passing Web Context to Prechat - END
+    
   </body>
 </html>
