@@ -19,6 +19,29 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+
+		  var orgId = "";
+        
+    window.addEventListener("onEmbeddedMessagingReady", e => {
+        //log event
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        //set visible prechat field
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "sf_org_id": {
+              "value": orgId,
+              "isEditableByEndUser": true
+            }
+        });
+      
+        // //Set invisible prechat field
+        // embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+        //     "Shopping_Cart_Value" : sShoppingCartValue,
+        //     "Customer_ID" : sCustomerID
+        // });
+    });
 </script>
 <script type='text/javascript' src='https://breadwinner--afsales.sandbox.my.site.com/ESWDemoTestAgent1738665202115/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
   </body>
