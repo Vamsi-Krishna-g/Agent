@@ -1,5 +1,25 @@
 <html>
   <body>
-    Agent Demo
+    Agent Demo Test
+    <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00Dcb000001ek8P',
+				'Demo_Test_Agent',
+				'https://breadwinner--afsales.sandbox.my.site.com/ESWDemoTestAgent1738665202115',
+				{
+					scrt2URL: 'https://breadwinner--afsales.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://breadwinner--afsales.sandbox.my.site.com/ESWDemoTestAgent1738665202115/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
   </body>
 </html>
