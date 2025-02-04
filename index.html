@@ -18,6 +18,15 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+		var SfOrgId = "";
+	    embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "_sf_org_id": {
+              "value": SfOrgId,
+              "isEditableByEndUser": false
+            }
+        });
 </script>
 <script type='text/javascript' src='https://breadwinner--afsales.sandbox.my.site.com/ESWDemoTestAgent1738665202115/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
